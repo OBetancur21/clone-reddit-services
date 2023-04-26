@@ -1,0 +1,45 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    registerWithEureka: true
+    fetchRegistry: true
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: service-categories
+          uri: lb://service-categories
+          predicates:
+            - Path=/api/categories/**
+        - id: service-categories
+          uri: lb://service-categories
+          predicates:
+            - Path=/api/subcategories/**
+        - id: service-comments
+          uri: lb://service-comments
+          predicates:
+            - Path=/api/comments/**
+        - id: service-favorites
+          uri: lb://service-favorites
+          predicates:
+            - Path=/api/favorites/**
+        - id: service-files
+          uri: lb://service-files
+          predicates:
+            - Path=/api/files/**
+        - id: service-likes
+          uri: lb://service-likes
+          predicates:
+            - Path=/api/likes/**
+        - id: service-posts
+          uri: lb://service-posts
+          predicates:
+            - Path=/api/posts/**
+        - id: service-users
+          uri: lb://service-users
+          predicates:
+            - Path=/api/users/**

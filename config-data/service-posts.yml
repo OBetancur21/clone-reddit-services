@@ -1,0 +1,15 @@
+#MongoDB
+server:
+  port: 8086
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://dh212:ypLJROgrdqhPiqRL@cluster0.c0o0skb.mongodb.net/?retryWrites=true&w=majority
+      database: service-posts
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    registerWithEureka: true
+    fetchRegistry: true
+
