@@ -16,8 +16,16 @@ spring:
             dialect: org.hibernate.dialect.PostgreSQLDialect
 
 eureka:
-    client:
-        serviceUrl:
-          defaultZone: http://localhost:8761/eureka/
-        registerWithEureka: true
-        fetchRegistry: true
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 2
+
+  client:
+    prefer-same-zone: false
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
