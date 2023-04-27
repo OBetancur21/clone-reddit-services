@@ -1,13 +1,12 @@
 server:
-  port: 8081
+  port: 8082
 
 spring:
-  shell:
-    init:
-      scripts:
-        - source config-data/.env
   datasource:
-    url: jdbc:postgresql://${POSTGRES_DATABASE_HOST}:${POSTGRES_DATABASE_PORT}/service_categories?user=${POSTGRES_DATABASE_USERNAME}&password=${POSTGRES_DATABASE_PASSWORD}&sslmode=disable
+    url: jdbc:postgresql://localhost:54322/service_categories
+    username: postgres
+    password: postgres21
+    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: update
