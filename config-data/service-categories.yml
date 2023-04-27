@@ -8,7 +8,6 @@ spring:
         - source config-data/.env
   datasource:
     url: jdbc:postgresql://${POSTGRES_DATABASE_HOST}:${POSTGRES_DATABASE_PORT}/service_categories?user=${POSTGRES_DATABASE_USERNAME}&password=${POSTGRES_DATABASE_PASSWORD}&sslmode=disable
-    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: update
