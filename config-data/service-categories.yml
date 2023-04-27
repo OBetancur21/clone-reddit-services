@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:54321/service_categories
-    username: postgres
-    password: postgres21
+    url: jdbc:postgresql://${POSTGRES_DATABASE_HOST}:${POSTGRES_DATABASE_PORT}/service_categories
+    username: ${POSTGRES_DATABASE_USERNAME}
+    password: ${POSTGRES_DATABASE_PASSWORD}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
